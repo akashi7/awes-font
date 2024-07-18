@@ -73,7 +73,10 @@ const AuthContainer: FC<AuthContainerProps> = ({
               <>
                 <div className='mt-2 lg:absolute lg:bottom-5 lg:hidden block'>
                   <div className='flex lg:justify-between flex-col lg:flex-row lg:items-center lg:gap-10 gap-5'>
-                    <p className='underline font-[600] text-[14px] leading-[18.23px]'>
+                    <p
+                      className='underline font-[600] text-[14px] leading-[18.23px]'
+                      onClick={handleNavigation}
+                    >
                       Have account
                     </p>
                     <GlobalButton
@@ -102,10 +105,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
             ) : (
               <div className='mt-10 lg:absolute lg:bottom-5'>
                 <div className='flex lg:justify-between flex-col lg:flex-row lg:items-center lg:gap-10 gap-5'>
-                  <p
-                    className='underline font-[600] text-[14px] leading-[18.23px]'
-                    onClick={handleNavigation}
-                  >
+                  <p className='underline font-[600] text-[14px] leading-[18.23px]'>
                     Forgot password?
                   </p>
                   <GlobalButton
