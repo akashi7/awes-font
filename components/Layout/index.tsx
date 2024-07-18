@@ -17,12 +17,12 @@ const LayoutWrapper: FC<LayoutWrapperProps> = ({
   isSavedPage,
 }) => {
   return (
-    <div className='h-[100vh] w-[100%] relative flex flex-col'>
+    <div className=' h-screen w-[100%]  flex flex-col '>
       <NavBar />
       <div
-        className={`lg:px-10 px-3  ${
-          isDetailsPage ? 'py-2' : 'py-10'
-        } h-[100%]  overflow-y-auto scroll  w-[100%]`}
+        className={` ${
+          isDetailsPage ? 'pt-2' : 'pt-10'
+        }  h-maxContainer  w-[100%]`}
       >
         <ContentWrapper
           isDetailsPage={isDetailsPage}
@@ -32,7 +32,6 @@ const LayoutWrapper: FC<LayoutWrapperProps> = ({
           {children}
         </ContentWrapper>
       </div>
-      <Footer />
     </div>
   )
 }

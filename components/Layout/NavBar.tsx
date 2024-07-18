@@ -145,7 +145,7 @@ export default function NavBar() {
         </section>
       </Drawer>
 
-      <nav className='flex justify-between items-center px-10 py-5 border-b-[1px] border-[#DBDBDB]'>
+      <nav className='flex justify-between items-center px-10 py-5 border-b-[1px] border-[#DBDBDB] h-[68px]'>
         <CiMenuBurger
           className='text-[#C1CF16] block lg:hidden cursor-pointer'
           size={25}
@@ -153,7 +153,7 @@ export default function NavBar() {
         />
         <section className='lg:flex flex-row items-center gap-[60px] hidden'>
           <div className='flex flex-row items-center gap-[10px]'>
-            <GlobalImage src='/icons/mark8.svg' />
+            <GlobalImage src='/icons/mark8.svg' width={40} height={40} />
             <div>
               <p className='font-[700] text-[#0C0D0D] leading-[20.83px] text-[16px]'>
                 Mark8

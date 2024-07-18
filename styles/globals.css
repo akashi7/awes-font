@@ -150,3 +150,7 @@ html {
 .search-s-input {
   z-index: 1000;
 }
+
+.footer {
+  margin: 0% !important;
+}

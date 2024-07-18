@@ -17,6 +17,9 @@ const config: Config = {
     maxWidth: {
       custom: 'calc(100% - 682px)',
     },
+    height: {
+      maxContainer: 'calc(100vh - 68px)',
+    },
   },
   plugins: [],
 }

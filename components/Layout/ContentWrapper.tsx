@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react'
 import Header from './header'
 import HomeFooter from '../stores/footer'
 import SavedHeader from './savedHeader'
+import Footer from './footer'
 
 interface ContentWrapperProps {
   children: ReactNode
@@ -18,14 +19,21 @@ const ContentWrapper: FC<ContentWrapperProps> = ({
 }) => {
   return (
     <section className='h-[100%] overflow-y-auto flex flex-col scroll'>
-      {isSavedPage ? (
-        <SavedHeader />
-      ) : (
-        !isDetailsPage && <Header isStore={isStore} />
-      )}
+      <div className='lg:px-10 px-3 '>
+        {isSavedPage ? (
+          <SavedHeader />
+        ) : (
+          !isDetailsPage && <Header isStore={isStore} />
+        )}
+      </div>
       <div className='mt-10  h-[100%] '>
-        {children}
-        <HomeFooter />
+        <div className='lg:px-10 px-3 '>
+          {children}
+          <HomeFooter />
+        </div>
+        <div className='mt-10'>
+          <Footer />
+        </div>
       </div>
     </section>
   )

@@ -11,7 +11,7 @@ const Header: FC<HeaderProps> = ({ isStore }) => {
     <div
       className={`h-[300px] w-[100%]   ${
         isStore ? 'bg-[#F7F8FB] store-container ' : 'bg-[#1C2834]'
-      } rounded-xl flex lg:justify-center  justify-start lg:p-[40px] p-[20px]`}
+      } rounded-[16px] flex lg:justify-center  justify-start lg:p-[40px] p-[20px]`}
     >
       <section className={`w-[60%]  z-[2000] ${isStore ? '  z-[2000]' : ''}`}>
         {isStore ? (
