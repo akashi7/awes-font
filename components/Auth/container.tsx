@@ -38,7 +38,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
       className={`bg-cover  ${
         isSignup
           ? 'h-[100%] lg:h-screen overflow-y-auto lg:overflow-y-hidden'
-          : 'h-screen'
+          : 'h-[100vh]'
       }  flex justify-center items-center bg-[#E3E3E3] `}
     >
       <section
@@ -122,7 +122,12 @@ const AuthContainer: FC<AuthContainerProps> = ({
             )}
           </div>
         </main>
-        <footer className='rounded-2xl bg-white lg:flex lg:justify-between lg:flex-row flex-col gap-1 lg:gap-0 lg:items-center px-8 py-5 h-[128px] hidden'>
+
+        <footer
+          className={`rounded-2xl bg-white lg:flex lg:justify-between lg:flex-row flex-col gap-1 lg:gap-0 lg:items-center px-8 py-5 h-[128px] ${
+            isSignup && 'hidden'
+          }`}
+        >
           <div className='flex flex-col gap-1'>
             <p className='leading-[18.23px] font-[500] text-[14px] text-black'>
               {isSignup ? 'Have account' : 'New Here?'}
