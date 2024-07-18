@@ -1,7 +1,7 @@
-import { ReactNode, FC } from 'react'
+import { useRouter } from 'next/router'
+import { FC, ReactNode } from 'react'
 import GlobalButton from '../common/button/globalButton'
 import GlobalImage from '../common/image/globalImage'
-import { useRouter } from 'next/router'
 
 interface AuthContainerProps {
   title: string
@@ -35,9 +35,9 @@ const AuthContainer: FC<AuthContainerProps> = ({
 
   return (
     <div
-      className={
-        'bg-cover h-screen  flex justify-center items-center bg-[#E3E3E3] overflow-y-auto'
-      }
+      className={`bg-cover  ${
+        isSignup ? 'h-[100%] overflow-y-auto' : 'h-screen'
+      }  flex justify-center items-center bg-[#E3E3E3] `}
     >
       <section
         className='flex justify-center flex-col gap-10 lg:m-0 m-10 h-[100%]'
