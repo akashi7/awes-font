@@ -75,55 +75,53 @@ const Header: FC<HeaderProps> = ({ isStore }) => {
               Backgrounds
             </GlobalButton>
           </section>
-          <section className='lg:hidden  mx-auto w-[95%]'>
-            <div className='flex flex-col gap-2'>
-              <div className=' mx-auto w-[90%]'>
-                <GlobalButton
-                  htmlType='button'
-                  className={`bg-[#1C2834] bg-inherit  ${
-                    isStore
-                      ? 'header-s-custom-button text-[#495D69]'
-                      : 'header-custom-button text-[#79878F]'
-                  } rounded-[40px] ml-[50px]  w-[90%] h-[27px]  px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500] `}
-                >
-                  All
-                </GlobalButton>
-              </div>
-              <div className='flex flex-row items-center gap-2'>
-                <GlobalButton
-                  htmlType='button'
-                  className={`bg-[#1C2834] bg-inherit ${
-                    isStore
-                      ? 'header-s-custom-button text-[#495D69]'
-                      : 'header-custom-button text-[#79878F]'
-                  }  rounded-[40px] w-[66px] h-[27px] px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500]`}
-                >
-                  Icons
-                </GlobalButton>
-                <GlobalButton
-                  htmlType='button'
-                  className={`bg-[#1C2834] bg-inherit ${
-                    isStore
-                      ? 'header-s-custom-button text-[#495D69]'
-                      : 'header-custom-button text-[#79878F]'
-                  } rounded-[40px] w-[77px] h-[27px] px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500]`}
-                >
-                  Vectors
-                </GlobalButton>
-                <GlobalButton
-                  htmlType='button'
-                  className={`bg-[#1C2834] bg-inherit ${
-                    isStore
-                      ? 'header-s-custom-button text-[#495D69]'
-                      : 'header-custom-button text-[#79878F]'
-                  }  rounded-[40px] w-[102px]  h-[27px] px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500] `}
-                >
-                  Backgrounds
-                </GlobalButton>
-              </div>
-            </div>
-          </section>
         </div>
+        <section className='lg:hidden flex  flex-row gap-2 '>
+          <div className=' flex flex-row items-center gap-2'>
+            <GlobalButton
+              htmlType='button'
+              className={`bg-[#1C2834] bg-inherit  ${
+                isStore
+                  ? 'header-s-custom-button text-[#495D69]'
+                  : 'header-custom-button text-[#79878F]'
+              } rounded-[40px] w-[53px] h-[27px] px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500]  `}
+            >
+              All
+            </GlobalButton>
+            <GlobalButton
+              htmlType='button'
+              className={`bg-[#1C2834] bg-inherit ${
+                isStore
+                  ? 'header-s-custom-button text-[#495D69]'
+                  : 'header-custom-button text-[#79878F]'
+              }  rounded-[40px] w-[66px] h-[27px] px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500]`}
+            >
+              Icons
+            </GlobalButton>
+          </div>
+          <div className='flex flex-row items-center gap-2'>
+            <GlobalButton
+              htmlType='button'
+              className={`bg-[#1C2834] bg-inherit ${
+                isStore
+                  ? 'header-s-custom-button text-[#495D69]'
+                  : 'header-custom-button text-[#79878F]'
+              } rounded-[40px] w-[77px] h-[27px] px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500]`}
+            >
+              Vectors
+            </GlobalButton>
+            <GlobalButton
+              htmlType='button'
+              className={`bg-[#1C2834] bg-inherit ${
+                isStore
+                  ? 'header-s-custom-button text-[#495D69]'
+                  : 'header-custom-button text-[#79878F]'
+              }  rounded-[40px] w-[102px]  h-[27px] px-[20px] py-[10px] border-[#79878F] text-[10px] font-[500] `}
+            >
+              Backgrounds
+            </GlobalButton>
+          </div>
+        </section>
       </section>
     </div>
   )
