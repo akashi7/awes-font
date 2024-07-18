@@ -34,7 +34,11 @@ const AuthContainer: FC<AuthContainerProps> = ({
   }
 
   return (
-    <div className='bg-cover h-screen  flex justify-center items-center bg-[#E3E3E3]'>
+    <div
+      className={
+        'bg-cover h-screen  flex justify-center items-center bg-[#E3E3E3] overflow-y-auto'
+      }
+    >
       <section
         className='flex justify-center flex-col gap-10 lg:m-0 m-10 h-[100%]'
         style={{ zIndex: 2000 }}
