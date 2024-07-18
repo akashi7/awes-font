@@ -20,7 +20,7 @@ const LayoutWrapper: FC<LayoutWrapperProps> = ({
     <div className='h-[100vh] w-[100%] relative flex flex-col'>
       <NavBar />
       <div
-        className={`px-10  ${
+        className={`lg:px-10 px-3  ${
           isDetailsPage ? 'py-2' : 'py-10'
         } h-[100%]  overflow-y-auto scroll  w-[100%]`}
       >
