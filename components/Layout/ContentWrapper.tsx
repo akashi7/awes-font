@@ -18,7 +18,11 @@ const ContentWrapper: FC<ContentWrapperProps> = ({
   isSavedPage,
 }) => {
   return (
-    <section className='h-[100%] overflow-y-auto flex flex-col scroll'>
+    <section
+      className={`h-[100%] ${
+        isDetailsPage ? 'pt-2' : 'pt-10'
+      } overflow-y-auto flex flex-col scroll `}
+    >
       <div className='lg:px-10 px-3 '>
         {isSavedPage ? (
           <SavedHeader />

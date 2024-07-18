@@ -19,11 +19,7 @@ const LayoutWrapper: FC<LayoutWrapperProps> = ({
   return (
     <div className=' h-screen w-[100%]  flex flex-col '>
       <NavBar />
-      <div
-        className={` ${
-          isDetailsPage ? 'pt-2' : 'pt-10'
-        }  h-maxContainer  w-[100%]`}
-      >
+      <div className={`   h-maxContainer  w-[100%]`}>
         <ContentWrapper
           isDetailsPage={isDetailsPage}
           isStore={isStore}

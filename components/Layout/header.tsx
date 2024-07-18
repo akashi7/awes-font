@@ -11,25 +11,29 @@ const Header: FC<HeaderProps> = ({ isStore }) => {
     <div
       className={`h-[300px] w-[100%]   ${
         isStore ? 'bg-[#F7F8FB] store-container ' : 'bg-[#1C2834]'
-      } rounded-[16px] flex lg:justify-center  justify-start lg:p-[40px] p-[20px]`}
+      } rounded-[16px] flex lg:justify-center  justify-start lg:p-[40px] p-[10px]`}
     >
-      <section className={`w-[60%]  z-[2000] ${isStore ? '  z-[2000]' : ''}`}>
+      <section
+        className={`lg:w-[60%] w-[100%]  z-[2000] ${
+          isStore ? '  z-[2000]' : ''
+        }`}
+      >
         {isStore ? (
-          <h1 className=' font-bold lg:text-[24px] text-[14px] leading-[31.25px] text-[#C1CF16] lg:text-center text-left'>
+          <h1 className=' font-bold lg:text-[24px] text-[14px] leading-[31.25px] text-[#C1CF16] text-center'>
             Mark8 <span className=' text-black'>Stores</span>
           </h1>
         ) : (
-          <h1 className=' font-bold lg:text-[24px] text-[14px]  leading-[31.25px] text-white lg:text-center text-left'>
+          <h1 className=' font-bold lg:text-[24px] text-[14px]  leading-[31.25px] text-white text-center'>
             Welcome to <span className='text-[#C1CF16]'>Mark8</span>
           </h1>
         )}
-        <p className='text-[#495D69] lg:text-center text-left mt-6 leading-[24px] font-[300] text-[14px]'>
+        <p className='text-[#495D69] text-center mt-6 leading-[24px] font-[300] text-[14px]'>
           {isStore ? '54 Stores' : '12,932 Products'}
         </p>
         <div className='mt-6 w-[100%]'>
           <HeaderForm isStore={isStore} />
         </div>
-        <div className='flex justify-center mt-10'>
+        <div className='flex justify-center mt-10 w-[100%]'>
           <section
             className='lg:flex flex-row gap-[8px] items-center hidden'
             style={{ zIndex: 1000 }}

@@ -5,7 +5,7 @@ import ProductCard from '../card/card'
 
 const ProductList: FC = () => {
   return (
-    <section className='flex  flex-wrap'>
+    <section className='flex  lg:flex-wrap flex-col'>
       <ProductCard />
       <ProductCard />
       <ProductCard />

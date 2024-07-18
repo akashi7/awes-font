@@ -23,7 +23,7 @@ const HeaderForm: FC<HeaderFormProps> = ({ isStore }) => {
           isStore
             ? 'bg-[#0C0C0D0A] filter-store '
             : 'bg-[#FFFFFF0A] focus:bg-[#FFFFFF0A] hover:bg-[#FFFFFF0A] filter-input  '
-        }    border-none rounded-xl pl-4  focus:border-none outline-none  lg:w-[100%] w-[250px]  `}
+        }    border-none rounded-xl pl-4  focus:border-none outline-none  lg:w-[100%] w-[100%]  `}
         isSuffixButton={true}
         suffixButton={
           <GlobalButton
