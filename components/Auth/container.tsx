@@ -36,11 +36,11 @@ const AuthContainer: FC<AuthContainerProps> = ({
   return (
     <div
       className={`bg-cover  ${
-        isSignup ? 'h-[100vh]' : 'h-screen'
+        isSignup ? 'h-[100%] overflow-y-auto' : 'h-screen'
       }  flex justify-center items-center bg-[#E3E3E3] `}
     >
       <section
-        className='flex justify-center flex-col gap-10 lg:m-0 m-10 h-[100%] overflow-y-auto'
+        className='flex justify-center flex-col gap-10 lg:m-0 m-10 h-[100%] '
         style={{ zIndex: 2000 }}
       >
         <main className='flex flex-row items-center '>
@@ -66,21 +66,42 @@ const AuthContainer: FC<AuthContainerProps> = ({
             </p>
             <div className='mt-6'>{formComponent}</div>
             {isSignup ? (
-              <div className='lg:absolute lg:bottom-5'>
-                <GlobalButton
-                  htmlType='submit'
-                  form={formId}
-                  icon={<GlobalImage src='/icons/login-e.svg' />}
-                  iconPlacement='right'
-                  className='h-[50px] w-[200px] leading-[18.23px] text-[14px] font-[800]'
-                >
-                  {buttonText}
-                </GlobalButton>
-              </div>
+              <>
+                <div className='mt-10 lg:absolute lg:bottom-5 lg:hidden block'>
+                  <div className='flex lg:justify-between flex-col lg:flex-row lg:items-center lg:gap-10 gap-5'>
+                    <p className='underline font-[600] text-[14px] leading-[18.23px]'>
+                      Have account
+                    </p>
+                    <GlobalButton
+                      htmlType='submit'
+                      form={formId}
+                      icon={<GlobalImage src='/icons/login-e.svg' />}
+                      iconPlacement='right'
+                      className='h-[50px] w-[170px] leading-[18.23px] text-[14px] font-[800]'
+                    >
+                      {buttonText}
+                    </GlobalButton>
+                  </div>
+                </div>
+                {/* <div className='lg:absolute lg:bottom-5'>
+                  <GlobalButton
+                    htmlType='submit'
+                    form={formId}
+                    icon={<GlobalImage src='/icons/login-e.svg' />}
+                    iconPlacement='right'
+                    className='h-[50px] w-[200px] leading-[18.23px] text-[14px] font-[800]'
+                  >
+                    {buttonText}
+                  </GlobalButton>
+                </div> */}
+              </>
             ) : (
               <div className='mt-10 lg:absolute lg:bottom-5'>
                 <div className='flex lg:justify-between flex-col lg:flex-row lg:items-center lg:gap-10 gap-5'>
-                  <p className='underline font-[600] text-[14px] leading-[18.23px]'>
+                  <p
+                    className='underline font-[600] text-[14px] leading-[18.23px]'
+                    onClick={handleNavigation}
+                  >
                     Forgot password?
                   </p>
                   <GlobalButton
@@ -97,7 +118,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
             )}
           </div>
         </main>
-        <footer className='rounded-2xl bg-white flex lg:justify-between lg:flex-row flex-col gap-1 lg:gap-0 lg:items-center px-8 py-5 h-[128px]'>
+        <footer className='rounded-2xl bg-white lg:flex lg:justify-between lg:flex-row flex-col gap-1 lg:gap-0 lg:items-center px-8 py-5 h-[128px] hidden'>
           <div className='flex flex-col gap-1'>
             <p className='leading-[18.23px] font-[500] text-[14px] text-black'>
               {isSignup ? 'Have account' : 'New Here?'}

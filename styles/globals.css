@@ -49,7 +49,7 @@ html {
 }
 
 .bg-cover::before {
-  height: 100vh;
+  height: 100%;
   background-color: #e3e3e3;
   opacity: 0.5;
 }
