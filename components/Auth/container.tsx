@@ -67,7 +67,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
             <div className='mt-6'>{formComponent}</div>
             {isSignup ? (
               <>
-                <div className='mt-10 lg:absolute lg:bottom-5 lg:hidden block'>
+                <div className='mt-2 lg:absolute lg:bottom-5 lg:hidden block'>
                   <div className='flex lg:justify-between flex-col lg:flex-row lg:items-center lg:gap-10 gap-5'>
                     <p className='underline font-[600] text-[14px] leading-[18.23px]'>
                       Have account
