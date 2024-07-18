@@ -36,11 +36,15 @@ const AuthContainer: FC<AuthContainerProps> = ({
   return (
     <div
       className={`bg-cover  ${
-        isSignup ? 'h-[100%] overflow-y-auto' : 'h-screen'
+        isSignup
+          ? 'h-[100%] lg:h-screen overflow-y-auto lg:overflow-y-hidden'
+          : 'h-screen'
       }  flex justify-center items-center bg-[#E3E3E3] `}
     >
       <section
-        className='flex justify-center flex-col gap-10 lg:m-0 m-10 h-[100%] '
+        className={`flex justify-center flex-col gap-10 lg:m-0  h-[100%] ${
+          isSignup ? 'm-3' : 'm-10'
+        }`}
         style={{ zIndex: 2000 }}
       >
         <main className='flex flex-row items-center '>
@@ -83,7 +87,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                     </GlobalButton>
                   </div>
                 </div>
-                {/* <div className='lg:absolute lg:bottom-5'>
+                <div className='lg:absolute lg:bottom-5 hidden lg:block'>
                   <GlobalButton
                     htmlType='submit'
                     form={formId}
@@ -93,7 +97,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                   >
                     {buttonText}
                   </GlobalButton>
-                </div> */}
+                </div>
               </>
             ) : (
               <div className='mt-10 lg:absolute lg:bottom-5'>
