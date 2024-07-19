@@ -272,7 +272,7 @@ export default function NavBar() {
             Open a Store
           </GlobalButton>
           <Dropdown overlay={FiltersDropdown} trigger={['click']}>
-            <section className='flex flex-row items-center gap-0'>
+            <section className='lg:flex flex-row items-center gap-0 hidden'>
               <GlobalButton
                 htmlType='button'
                 icon={<GlobalImage src='/icons/user-h.svg' width={24} />}
@@ -288,6 +288,22 @@ export default function NavBar() {
             </section>
           </Dropdown>
         </section>
+        <Dropdown overlay={FiltersDropdown} trigger={['click']}>
+          <section className='flex flex-row items-center gap-0 lg:hidden'>
+            <GlobalButton
+              htmlType='button'
+              icon={<GlobalImage src='/icons/user-h.svg' width={24} />}
+              className='h-[48px] w-[50px] bg-inherit  rounded-l-xl rounded-r-none header-b-c'
+            />
+            <GlobalButton
+              htmlType='button'
+              icon={
+                <GlobalImage src='/icons/down-h.svg' width={12} height={6} />
+              }
+              className='h-[48px] w-[50px] bg-inherit  rounded-r-xl rounded-l-none header-b-c'
+            />
+          </section>
+        </Dropdown>
       </nav>
     </>
   )
