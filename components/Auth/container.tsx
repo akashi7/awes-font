@@ -10,7 +10,7 @@ interface AuthContainerProps {
   buttonText: string
   isSignup?: boolean
   route: string
-  loading?:boolean
+  loading?: boolean
 }
 
 const AuthContainer: FC<AuthContainerProps> = ({
@@ -20,7 +20,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
   buttonText,
   isSignup,
   route,
-  loading
+  loading,
 }) => {
   const containerWidth = isSignup
     ? 'lg:w-[500px] w-[100%]'
@@ -38,14 +38,12 @@ const AuthContainer: FC<AuthContainerProps> = ({
   return (
     <div
       className={`bg-cover  ${
-        isSignup
-          ? 'h-[100%] lg:h-[100vh] overflow-y-auto lg:overflow-y-hidden'
-          : 'h-[100vh]'
+        isSignup ? 'h-[100vh] overflow-y-auto ' : 'h-[100vh]'
       }  flex justify-center items-center bg-[#E3E3E3] `}
     >
       <section
         className={`flex justify-center flex-col gap-10 lg:m-0  h-[100%] ${
-          isSignup ? 'm-3' : 'm-10'
+          isSignup ? 'm-5' : 'm-5'
         }`}
         style={{ zIndex: 2000 }}
       >
@@ -79,7 +77,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                       className='underline font-[600] text-[14px] leading-[18.23px]'
                       onClick={handleNavigation}
                     >
-                      Have account
+                      Click here if you have an account
                     </p>
                     <GlobalButton
                       htmlType='submit'
@@ -144,7 +142,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
           <div>
             <GlobalButton
               htmlType='button'
-              className='bg-white rounded-md h-[48px] w-[180px] register-button border-2 border-gray-300 border-opacity-50 text-[#141C24] leading-[18.23px] font-[800]'
+              className='bg-white rounded-md h-[48px] lg:w-[180px] w-[100%] register-button border-2 border-gray-300 border-opacity-50 text-[#141C24] leading-[18.23px] font-[800]'
               icon={<GlobalImage src='/icons/right-arrow.svg' />}
               iconPlacement='right'
               onClick={handleNavigation}
