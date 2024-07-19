@@ -6,6 +6,7 @@ import { FC } from 'react'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { MdDriveFileRenameOutline } from 'react-icons/md'
 import GlobalInput from '../common/input/globalInput'
+import requiredField from '@/helpers/requiredField'
 
 interface SignUpFormProps {
   form: FormInstance
@@ -24,6 +25,7 @@ const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
             inputType='email'
             icon='/icons/mail.svg'
             styles='bg-[#0C0C0D0A] login-input'
+            rules={requiredField('Email')}
           />
         </Col>
         <Col className='gutter-row mt-1' xs={24} sm={12}>
@@ -35,6 +37,7 @@ const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
             inputType='password'
             icon='/icons/lockp.svg'
             suffixIcon='/icons/view.svg '
+            rules={requiredField('Password')}
           />
         </Col>
         <Col className='gutter-row mt-1' xs={24} sm={12}>
@@ -45,6 +48,7 @@ const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
             inputType='text'
             reactIcon={<MdDriveFileRenameOutline className='text-[#C1CF16]' />}
             styles='bg-[#0C0C0D0A] login-input'
+            rules={requiredField('First name')}
           />
         </Col>
         <Col className='gutter-row mt-1' xs={24} sm={12}>
@@ -55,6 +59,7 @@ const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
             inputType='text'
             reactIcon={<MdDriveFileRenameOutline className='text-[#C1CF16]' />}
             styles='bg-[#0C0C0D0A] login-input'
+            rules={requiredField('Last name')}
           />
         </Col>
         <Col className='gutter-row mt-1' xs={24} sm={12}>
@@ -65,6 +70,7 @@ const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
             inputType='text'
             reactIcon={<FaPhoneAlt className='text-[#C1CF16]' />}
             styles='bg-[#0C0C0D0A] login-input'
+            rules={requiredField('Phone')}
           />
         </Col>
       </Row>

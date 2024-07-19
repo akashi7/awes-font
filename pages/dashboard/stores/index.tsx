@@ -1,6 +1,7 @@
 import LayoutWrapper from '@/components/Layout'
 import { FC } from 'react'
 import Stores from './store'
+import PrivateComponentWrapper from '@/components/routes/private'
 
 const Index: FC = () => {
   return (
@@ -10,4 +11,4 @@ const Index: FC = () => {
   )
 }
 
-export default Index
+export default PrivateComponentWrapper(Index)

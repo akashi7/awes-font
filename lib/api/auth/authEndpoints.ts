@@ -34,9 +34,18 @@ export interface AuthResponse {
   }
 }
 
+export interface LoginAuthResponse {
+  status: number
+  message: string
+  data: {
+    accessToken: string
+    refreshToken: string
+  }
+}
+
 const authApi = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.mutation<any, LoginDTO>({
+    login: builder.mutation<LoginAuthResponse, LoginDTO>({
       query: (DTO) => ({
         url: `auth/login`,
         method: 'POST',

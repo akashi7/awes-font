@@ -1,10 +1,15 @@
+import handleAPIRequests from '@/helpers/handleApiRequests'
+import { setToLocal } from '@/helpers/handleStorage'
+import {
+  LoginAuthResponse,
+  LoginDTO,
+  useLoginMutation,
+} from '@/lib/api/auth/authEndpoints'
 import Form from 'antd/lib/form'
+import { useRouter } from 'next/router'
 import { FC } from 'react'
 import LoginForm from '../Forms/login.form'
 import AuthContainer from './container'
-import { LoginDTO, useLoginMutation } from '@/lib/api/auth/authEndpoints'
-import { useRouter } from 'next/router'
-import handleAPIRequests from '@/helpers/handleApiRequests'
 
 const Login: FC = () => {
   const [form] = Form.useForm()
@@ -12,7 +17,8 @@ const Login: FC = () => {
 
   const router = useRouter()
 
-  const onSuccess = (res: any): void => {
+  const onSuccess = (res: LoginAuthResponse): void => {
+    setToLocal('token', res.data.accessToken)
     router.push('/dashboard')
   }
 

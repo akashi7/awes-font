@@ -1,4 +1,5 @@
 import LayoutWrapper from '@/components/Layout'
+import PrivateComponentWrapper from '@/components/routes/private'
 import Products from './products/product'
 
 const Dashboard = () => {
@@ -9,4 +10,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default PrivateComponentWrapper(Dashboard)
