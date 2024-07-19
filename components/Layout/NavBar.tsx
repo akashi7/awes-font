@@ -113,7 +113,7 @@ export default function NavBar() {
           <>
             <div className='border-t-[1px] border-gray-300 ' />
             <div className='flex lg:justify-between flex-col lg:flex-row lg:items-center w-[100%] p-10 '>
-              <div className='text-left'>
+              <div className='lg:text-left text-center'>
                 <p className='font-[300] text-[14px]  text-[#1C2834] '>
                   Total:
                 </p>
@@ -123,7 +123,7 @@ export default function NavBar() {
               </div>
               <GlobalButton
                 icon={<GlobalImage src='/icons/dollar.svg' />}
-                className='rounded-[8px] h-[48px] lg:w-[156px] w-[140px] text-[#1C2834] h-tex-c font-bold text-[14px] header-b-c'
+                className='rounded-[8px] h-[48px] lg:w-[156px] w-[100%] text-[#1C2834] h-tex-c font-bold text-[14px] header-b-c'
               >
                 Checkout
               </GlobalButton>
@@ -132,7 +132,7 @@ export default function NavBar() {
         }
       >
         <div className='lg:p-10 p-5'>
-          {[...Array(6)].map((_, index) => (
+          {[...Array(3)].map((_, index) => (
             <section key={index} className='mb-5'>
               <CartItem />
             </section>
@@ -206,14 +206,6 @@ export default function NavBar() {
             iconInactive='heart'
             label='Saved'
           />
-          <GlobalButton
-            htmlType='button'
-            className='font-bold text-[14px] leading-[18.23px] h-[48px] w-[180px] rounded-lg text-[#141C24] bg-white h-tex-c header-b-c'
-            iconPlacement='right'
-            icon={<GlobalImage src='/icons/store-02.svg' />}
-          >
-            Open a Store
-          </GlobalButton>
         </section>
       </Drawer>
 
@@ -301,21 +293,19 @@ export default function NavBar() {
           overlay={FiltersDropdown}
           trigger={['click']}
           overlayStyle={{ zIndex: 9000, backgroundColor: 'white' }}
-          overlayClassName='overlay'
-          className=' overlay'
         >
           <section className='flex flex-row items-center gap-0 lg:hidden '>
             <GlobalButton
               htmlType='button'
-              icon={<GlobalImage src='/icons/user-h.svg' width={24} />}
-              className='h-[48px] w-[50px] bg-inherit  rounded-l-xl rounded-r-none header-b-c'
+              icon={<GlobalImage src='/icons/user-h.svg' width={20} />}
+              className='h-[38px] w-[40px] bg-inherit  rounded-l-xl rounded-r-none header-b-c'
             />
             <GlobalButton
               htmlType='button'
               icon={
                 <GlobalImage src='/icons/down-h.svg' width={12} height={6} />
               }
-              className='h-[48px] w-[50px] bg-inherit  rounded-r-xl rounded-l-none header-b-c'
+              className='h-[38px] w-[40px] bg-inherit  rounded-r-xl rounded-l-none header-b-c'
             />
           </section>
         </Dropdown>

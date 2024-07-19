@@ -11,7 +11,7 @@ const Header: FC<HeaderProps> = ({ isStore }) => {
     <div
       className={`h-[300px] w-[100%]   ${
         isStore ? 'bg-[#F7F8FB] store-container ' : 'bg-[#1C2834]'
-      } rounded-[16px] flex lg:justify-center  justify-start lg:p-[40px] p-[10px]`}
+      } rounded-[16px] flex lg:justify-center  justify-start lg:p-[40px] p-[20px]`}
     >
       <section
         className={`lg:w-[60%] w-[100%]  z-[2000] ${
@@ -80,7 +80,7 @@ const Header: FC<HeaderProps> = ({ isStore }) => {
             </GlobalButton>
           </section>
         </div>
-        <section className='lg:hidden flex  flex-row gap-2 '>
+        <section className='lg:hidden flex  flex-wrap justify-center gap-2 '>
           <div className=' flex flex-row items-center gap-2'>
             <GlobalButton
               htmlType='button'
