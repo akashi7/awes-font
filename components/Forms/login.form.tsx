@@ -1,14 +1,16 @@
+import { LoginDTO } from '@/lib/api/auth/authEndpoints'
 import Form, { FormInstance } from 'antd/lib/form'
 import { FC } from 'react'
 import GlobalInput from '../common/input/globalInput'
 
 interface LoginFormProps {
   form: FormInstance
+  onFinish: (values: LoginDTO) => void
 }
 
-const LoginForm: FC<LoginFormProps> = ({ form }) => {
+const LoginForm: FC<LoginFormProps> = ({ form, onFinish }) => {
   return (
-    <Form name='login-form' form={form}>
+    <Form name='login-form' form={form} onFinish={onFinish}>
       <GlobalInput
         name='email'
         label='Email'

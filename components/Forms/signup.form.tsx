@@ -1,3 +1,4 @@
+import { SignupDTO } from '@/lib/api/auth/authEndpoints'
 import Col from 'antd/lib/col'
 import Form, { FormInstance } from 'antd/lib/form'
 import Row from 'antd/lib/row'
@@ -8,11 +9,12 @@ import GlobalInput from '../common/input/globalInput'
 
 interface SignUpFormProps {
   form: FormInstance
+  onFinish: (values: SignupDTO) => void
 }
 
-const SignUpForm: FC<SignUpFormProps> = ({ form }) => {
+const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
   return (
-    <Form name='signup-form' form={form}>
+    <Form name='signup-form' form={form} onFinish={onFinish}>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <Col className='gutter-row mt-1' xs={24} sm={12}>
           <GlobalInput

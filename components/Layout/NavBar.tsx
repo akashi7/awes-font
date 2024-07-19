@@ -9,6 +9,7 @@ import GlobalImage from '../common/image/globalImage'
 import CustomModal from '../common/modal/modal'
 import { useWindowSize } from '@/helpers/interfaceSize'
 import Dropdown from 'antd/lib/dropdown'
+import { removeFromLocal } from '@/helpers/handleStorage'
 
 export default function NavBar() {
   const router = useRouter()
@@ -31,6 +32,11 @@ export default function NavBar() {
     setDrawerVisible((prev) => !prev)
   }
 
+  const handleLogout = (): void => {
+    removeFromLocal('token')
+    router.push('/')
+  }
+
   const FiltersDropdown = () => (
     <div className='w-fit rounded shadow-md  bg-white p-10 mt-6 flex flex-col gap-4'>
       <section>
@@ -50,7 +56,7 @@ export default function NavBar() {
           </div>
         </div>
         <div className='border-t-[1px] border-gray-300  mt-5' />
-        <section className='mt-5'>
+        <section className='mt-5 cursor-pointer'>
           <div className='flex flex-row gap-4 mb-5'>
             <GlobalImage src='/icons/user-d.svg' width={16} height={16} />
             <p className='font-[400] text-[14px] text-[#1C2834] leading-[18px]'>
@@ -83,7 +89,10 @@ export default function NavBar() {
           </div>
         </section>
         <div className='border-t-[1px] border-gray-300  mt-5' />
-        <div className='mt-5 flex flex-row gap-4'>
+        <div
+          className='mt-5 flex flex-row gap-4 cursor-pointer'
+          onClick={handleLogout}
+        >
           <GlobalImage src='/icons/logout.svg' />
           <p className='text-[#495D69] font-[400]  leading-[18px]  text-[14px]'>
             Logout

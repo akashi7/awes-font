@@ -10,6 +10,7 @@ interface AuthContainerProps {
   buttonText: string
   isSignup?: boolean
   route: string
+  loading?:boolean
 }
 
 const AuthContainer: FC<AuthContainerProps> = ({
@@ -19,6 +20,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
   buttonText,
   isSignup,
   route,
+  loading
 }) => {
   const containerWidth = isSignup
     ? 'lg:w-[500px] w-[100%]'
@@ -85,6 +87,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                       icon={<GlobalImage src='/icons/login-e.svg' />}
                       iconPlacement='right'
                       className='h-[50px] w-[170px] leading-[18.23px] text-[14px] font-[800]'
+                      loading={loading}
                     >
                       {buttonText}
                     </GlobalButton>
@@ -97,6 +100,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                     icon={<GlobalImage src='/icons/login-e.svg' />}
                     iconPlacement='right'
                     className='h-[50px] w-[200px] leading-[18.23px] text-[14px] font-[800]'
+                    loading={loading}
                   >
                     {buttonText}
                   </GlobalButton>
@@ -114,6 +118,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                     icon={<GlobalImage src='/icons/login-e.svg' />}
                     iconPlacement='right'
                     className='h-[50px] w-[170px] leading-[18.23px] text-[14px] font-[800]'
+                    loading={loading}
                   >
                     {buttonText}
                   </GlobalButton>
