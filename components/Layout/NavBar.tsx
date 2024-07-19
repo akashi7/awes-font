@@ -8,6 +8,7 @@ import GlobalButton from '../common/button/globalButton'
 import GlobalImage from '../common/image/globalImage'
 import CustomModal from '../common/modal/modal'
 import { useWindowSize } from '@/helpers/interfaceSize'
+import Dropdown from 'antd/lib/dropdown'
 
 export default function NavBar() {
   const router = useRouter()
@@ -30,6 +31,68 @@ export default function NavBar() {
     setDrawerVisible((prev) => !prev)
   }
 
+  const FiltersDropdown = () => (
+    <div className='w-fit rounded shadow-md  bg-white p-10 mt-6 flex flex-col gap-4'>
+      <section>
+        <div className='flex flex-row items-center gap-5'>
+          <GlobalImage
+            src='/icons/icon1.svg'
+            width={56}
+            className=' rounded-[16px]'
+          />
+          <div>
+            <p className='font-[500] text-[14px] text-[#0C0D0D]'>
+              Yves Honore B.
+            </p>
+            <p className='font-[300] text-[12px]  text-[#495D69]'>
+              yveshonore@awesomity.rw
+            </p>
+          </div>
+        </div>
+        <div className='border-t-[1px] border-gray-300  mt-5' />
+        <section className='mt-5'>
+          <div className='flex flex-row gap-4 mb-5'>
+            <GlobalImage src='/icons/user-d.svg' width={16} height={16} />
+            <p className='font-[400] text-[14px] text-[#1C2834] leading-[18px]'>
+              My account
+            </p>
+          </div>
+          <div className='flex flex-row gap-4 mb-5'>
+            <GlobalImage src='/icons/cart2.svg' width={16} height={16} />
+            <p className='font-[400] text-[14px] text-[#1C2834] leading-[18px]'>
+              My Orders
+            </p>
+          </div>
+          <div className='flex flex-row gap-4 mb-5'>
+            <GlobalImage src='/icons/help.svg' width={16} height={16} />
+            <p className='font-[400] text-[14px] text-[#1C2834] leading-[18px]'>
+              Help
+            </p>
+          </div>
+          <div className='flex flex-row gap-4 mb-5'>
+            <GlobalImage src='/icons/alert.svg' width={16} height={16} />
+            <p className='font-[400] text-[14px] text-[#1C2834] leading-[18px]'>
+              About
+            </p>
+          </div>
+          <div className='flex flex-row gap-4 mb-5'>
+            <GlobalImage src='/icons/settingss.svg' width={16} height={16} />
+            <p className='font-[400] text-[14px] text-[#1C2834] leading-[18px]'>
+              Settings
+            </p>
+          </div>
+        </section>
+        <div className='border-t-[1px] border-gray-300  mt-5' />
+        <div className='mt-5 flex flex-row gap-4'>
+          <GlobalImage src='/icons/logout.svg' />
+          <p className='text-[#495D69] font-[400]  leading-[18px]  text-[14px]'>
+            Logout
+          </p>
+        </div>
+      </section>
+    </div>
+  )
+
   return (
     <>
       <CustomModal
@@ -51,7 +114,7 @@ export default function NavBar() {
               </div>
               <GlobalButton
                 icon={<GlobalImage src='/icons/dollar.svg' />}
-                className='rounded-[8px] h-[48px] lg:w-[156px] w-[140px] text-[#1C2834] font-bold text-[14px]'
+                className='rounded-[8px] h-[48px] lg:w-[156px] w-[140px] text-[#1C2834] h-tex-c font-bold text-[14px] header-b-c'
               >
                 Checkout
               </GlobalButton>
@@ -136,7 +199,7 @@ export default function NavBar() {
           />
           <GlobalButton
             htmlType='button'
-            className='font-bold text-[14px] leading-[18.23px] h-[48px] w-[180px] rounded-lg text-[#141C24] bg-white'
+            className='font-bold text-[14px] leading-[18.23px] h-[48px] w-[180px] rounded-lg text-[#141C24] bg-white h-tex-c header-b-c'
             iconPlacement='right'
             icon={<GlobalImage src='/icons/store-02.svg' />}
           >
@@ -190,7 +253,7 @@ export default function NavBar() {
             <p className='text-[#495D69] leading-[15.62px] text-[12px] font-[400]'>
               My Cart
             </p>
-            <p className='w-1 h-1 bg-red-500 rounded-full'></p>
+            {/* <div className='w-1 h-1 bg-red-500 rounded-full'>j</div> */}
           </div>
           <NavItem
             route='/dashboard/saved'
@@ -202,12 +265,28 @@ export default function NavBar() {
           />
           <GlobalButton
             htmlType='button'
-            className='font-bold text-[14px] leading-[18.23px] h-[48px] w-[180px] rounded-lg text-[#141C24] bg-white'
+            className='font-bold text-[14px] leading-[18.23px] h-[48px] w-[180px] rounded-lg text-[#141C24] h-tex-c bg-white header-b-c'
             iconPlacement='right'
             icon={<GlobalImage src='/icons/store-02.svg' />}
           >
             Open a Store
           </GlobalButton>
+          <Dropdown overlay={FiltersDropdown} trigger={['click']}>
+            <section className='flex flex-row items-center gap-0'>
+              <GlobalButton
+                htmlType='button'
+                icon={<GlobalImage src='/icons/user-h.svg' width={24} />}
+                className='h-[48px] w-[84px] bg-inherit  rounded-l-xl rounded-r-none header-b-c'
+              />
+              <GlobalButton
+                htmlType='button'
+                icon={
+                  <GlobalImage src='/icons/down-h.svg' width={12} height={6} />
+                }
+                className='h-[48px] w-[84px] bg-inherit  rounded-r-xl rounded-l-none header-b-c'
+              />
+            </section>
+          </Dropdown>
         </section>
       </nav>
     </>

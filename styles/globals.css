@@ -150,3 +150,14 @@ html {
 .search-s-input {
   z-index: 1000;
 }
+
+.search-b-c:hover {
+  background-color: inherit !important;
+}
+
+.header-b-c:hover {
+  border-color: rgb(225, 222, 222) !important;
+}
+.h-tex-c:hover {
+  color: #141c24 !important;
+}

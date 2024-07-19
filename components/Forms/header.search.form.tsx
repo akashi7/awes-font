@@ -28,7 +28,7 @@ const HeaderForm: FC<HeaderFormProps> = ({ isStore }) => {
         suffixButton={
           <GlobalButton
             htmlType='submit'
-            className=' border-none bg-transparent hover:bg-transparent'
+            className=' border-none search-b-c bg-transparent hover:bg-transparent'
             form='filter-form'
             iconPlacement='right'
             icon={

@@ -11,7 +11,7 @@ interface ProductCardProps {
 const ProductCard: FC<ProductCardProps> = ({ className, isStore, saved }) => {
   return (
     <div
-      className={` ${className} lg:w-[370px] w-[100%]  mr-5 mb-5  border-gray-300 border-[1px] rounded-xl`}
+      className={` ${className} lg:w-[370px] w-[100%]  mr-5 mb-5   border-gray-300 border-[1px] rounded-xl`}
     >
       <GlobalImage src='/icons/icon.svg' className='pt-[0.8px]' />
       <div className='flex justify-between  p-5 '>
@@ -35,14 +35,14 @@ const ProductCard: FC<ProductCardProps> = ({ className, isStore, saved }) => {
             <GlobalButton
               htmlType='button'
               icon={<GlobalImage src='/icons/favourite.svg' />}
-              className='border border-gray-300 bg-inherit h-[48px] w-[48px]'
+              className='border border-gray-300 bg-inherit h-[48px] w-[48px] header-b-c'
             />
           ) : (
             <>
               <GlobalButton
                 htmlType='button'
                 icon={<GlobalImage src='/icons/shopping.svg' />}
-                className='border border-gray-300 bg-inherit h-[48px] w-[48px]'
+                className='border border-gray-300 bg-inherit h-[48px] w-[48px] header-b-c'
               />
               <GlobalButton
                 htmlType='button'
@@ -51,7 +51,7 @@ const ProductCard: FC<ProductCardProps> = ({ className, isStore, saved }) => {
                     src={`/icons/${saved ? 'heart-s' : 'favourite'}.svg`}
                   />
                 }
-                className='border border-gray-300 bg-inherit h-[48px] w-[48px]'
+                className='border border-gray-300 bg-inherit h-[48px] w-[48px] header-b-c'
               />
             </>
           )}

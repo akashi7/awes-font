@@ -16,12 +16,12 @@ const Products: FC = () => {
           <GlobalButton
             htmlType='button'
             icon={<GlobalImage src='/icons/filters.svg' />}
-            className='border border-gray-300 rounded-lg bg-inherit h-[48px] w-[48px]'
+            className='border border-gray-300 rounded-lg bg-inherit h-[48px] w-[48px] header-b-c'
           />
           <GlobalButton
             htmlType='button'
             icon={<GlobalImage src='/icons/arrange.svg' />}
-            className='border border-gray-300 rounded-lg bg-inherit h-[48px] w-[48px]'
+            className='border border-gray-300 rounded-lg bg-inherit h-[48px] w-[48px] header-b-c'
           />
         </div>
       </section>
