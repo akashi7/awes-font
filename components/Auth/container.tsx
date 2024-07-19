@@ -37,7 +37,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
     <div
       className={`bg-cover  ${
         isSignup
-          ? 'h-[100%] lg:h-screen overflow-y-auto lg:overflow-y-hidden'
+          ? 'h-[100%] lg:h-[100vh] overflow-y-auto lg:overflow-y-hidden'
           : 'h-[100vh]'
       }  flex justify-center items-center bg-[#E3E3E3] `}
     >
