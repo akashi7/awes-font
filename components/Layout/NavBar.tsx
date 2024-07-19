@@ -288,8 +288,14 @@ export default function NavBar() {
             </section>
           </Dropdown>
         </section>
-        <Dropdown overlay={FiltersDropdown} trigger={['click']}>
-          <section className='flex flex-row items-center gap-0 lg:hidden'>
+        <Dropdown
+          overlay={FiltersDropdown}
+          trigger={['click']}
+          overlayStyle={{ zIndex: 9000, backgroundColor: 'white' }}
+          overlayClassName='overlay'
+          className=' overlay'
+        >
+          <section className='flex flex-row items-center gap-0 lg:hidden '>
             <GlobalButton
               htmlType='button'
               icon={<GlobalImage src='/icons/user-h.svg' width={24} />}
