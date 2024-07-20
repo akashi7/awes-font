@@ -1,20 +1,21 @@
-import { FC } from 'react'
-import GlobalButton from '../common/button/globalButton'
-import GlobalImage from '../common/image/globalImage'
+import { product } from '@/lib/api/products/productsEndpoints'
+import { FC, Fragment } from 'react'
 import ProductCard from '../card/card'
 
-const ProductList: FC = () => {
+interface ProductListProps {
+  products: Array<product> | undefined
+}
+
+const ProductList: FC<ProductListProps> = ({ products }) => {
   return (
     <section className='flex  lg:flex-wrap flex-col lg:flex-row'>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products?.map((product: product, key: number) => {
+        return (
+          <Fragment key={key}>
+            <ProductCard product={product} />
+          </Fragment>
+        )
+      })}
     </section>
   )
 }

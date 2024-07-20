@@ -3,43 +3,105 @@ import GlobalButton from '@/components/common/button/globalButton'
 import GlobalImage from '@/components/common/image/globalImage'
 import GlobalInput from '@/components/common/input/globalInput'
 import LayoutWrapper from '@/components/Layout'
-import { FC } from 'react'
+import { useWindowSize } from '@/helpers/interfaceSize'
+import {
+  product,
+  useGetProductsQuery,
+  useOneProductQuery,
+} from '@/lib/api/products/productsEndpoints'
+import { useRouter } from 'next/router'
+import React, { FC, useEffect, useMemo, useState } from 'react'
 
 const SingleProduct: FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const router = useRouter()
+  const { id } = router.query
+  const productId = Array.isArray(id) ? id[0] : id
+  const { data, refetch: refetchOne } = useOneProductQuery({
+    id: productId as string,
+  })
+
+  const { data: otherProducts, refetch } = useGetProductsQuery({
+    page: 1,
+    size: 4,
+  })
+
+  useEffect(() => {
+    if (productId) {
+      refetch()
+      refetchOne()
+    }
+  }, [refetchOne, refetch, productId])
+
+  useEffect(() => {
+    if (data?.data.thumbnail[0]) {
+      setSelectedImage(data.data.thumbnail[0])
+    }
+  }, [data])
+
+  const averageRating = useMemo(() => {
+    const reviews = data?.data.reviews
+    if (reviews && reviews.length > 1) {
+      const totalRating = reviews.reduce(
+        (sum, review) => sum + review.rating,
+        0
+      )
+      return totalRating / reviews.length
+    }
+    return reviews?.[0]?.rating || 0
+  }, [data])
+
+  const { width } = useWindowSize()
+  const isMobile = width < 768
+
   return (
     <LayoutWrapper isDetailsPage={true}>
       <>
         <section className='flex flex-row items-center gap-5'>
-          <GlobalImage src='/icons/arrow-left.svg' />
-          <p className='font-[500] lg:text-[14px] text-[12px]'>
+          <GlobalImage
+            src='/icons/arrow-left.svg'
+            onClick={() => router.back()}
+            className=' hover:cursor-pointer'
+          />
+          <p className='font-[500] lg:text-[14px] text-[9px]'>
             Home <span className=' pl-2'>/</span>
           </p>
-          <p className='font-[500] lg:text-[14px] text-[12px]'>
+          <p className='font-[500] lg:text-[14px] text-[9px]'>
             Products <span className=' pl-2'>/</span>
           </p>
-          <p className='font-[500] lg:text-[14px] text-[12px]'>
+          <p className='font-[500] lg:text-[14px] text-[9px]'>
             Vectors <span className=' pl-2'>/</span>
           </p>
-          <p className='font-[300] text-[#495D69] lg:text-[14px] text-[12px]'>
-            Product 1
+          <p className='font-[300] text-[#495D69] lg:text-[14px] text-[9px]'>
+            {data?.data.name}
           </p>
         </section>
         <div className='flex lg:flex-row items-center gap-5 mt-5 flex-col'>
           <section className='lg:h-[674px] lg:w-[682px] w-[90%] '>
             <div className=' border-gray-300 border-[1px] rounded-xl '>
-              <GlobalImage
-                src='/icons/icon5.svg'
-                className='pt-[0.8px] w-[100%]'
-              />
-              <div className='flex flex-row items-center gap-3  p-5 '>
+              {selectedImage && (
                 <GlobalImage
-                  src='/icons/icon1sm.svg'
-                  className='border-[4px] border-[#C1CF16] rounded-lg'
+                  src={selectedImage}
+                  className='w-full h-full object-cover'
+                  width={isMobile ? '100%' : 682}
+                  height={isMobile ? 400 : 574}
                 />
-                <GlobalImage src='/icons/icon1sm.svg' />
-                <GlobalImage src='/icons/icon1sm.svg' />
-                <GlobalImage src='/icons/icon1sm.svg' />
-                <GlobalImage src='/icons/icon1sm.svg' />
+              )}
+              <div className='flex flex-row items-center gap-3  p-5 '>
+                {data?.data.thumbnail.map((image, index) => (
+                  <GlobalImage
+                    key={index}
+                    src={image}
+                    className={`border-[4px] hover:cursor-pointer rounded-lg ${
+                      selectedImage === image
+                        ? 'border-[#C1CF16]'
+                        : 'border-transparent'
+                    }`}
+                    width={60}
+                    height={60}
+                    onClick={() => setSelectedImage(image)}
+                  />
+                ))}
               </div>
             </div>
           </section>
@@ -90,9 +152,9 @@ const SingleProduct: FC = () => {
             </div>
             <div>
               <section className='p-[40px] '>
-                <p className='font-bold  text-[24px]'>Product 5</p>
+                <p className='font-bold  text-[24px]'>{data?.data.name}</p>
                 <p className='font-[700] text-[16px] text-[#C1CF16]'>
-                  9,000 Rwf{' '}
+                  {data?.data.unitPrice} Rwf
                   <span className='text-[#DBDBDB] text-[14px] pl-3 line-through'>
                     12,000 Rwf
                   </span>
@@ -101,9 +163,7 @@ const SingleProduct: FC = () => {
                   Description
                 </h2>
                 <p className='font-[300] text-[14px] text-[#495D69] leading-[24px] mt-5'>
-                  A cozy boutique offering a curated selection of unique,
-                  high-quality clothing and accessories for fashion-forward
-                  individuals.
+                  {data?.data.description}
                 </p>
                 <h3 className=' font-semibold  text-[16px]  leading-[20px] mt-10'>
                   Reviews
@@ -112,11 +172,11 @@ const SingleProduct: FC = () => {
                   <div className='flex flex-row items-center gap-2'>
                     <GlobalImage src='/icons/star.svg' />
                     <p className=' font-semibold  text-[16px]  leading-[20px] text-[#495D69]'>
-                      4.9
+                      {averageRating.toFixed(1)}
                     </p>
                   </div>
                   <p className='font-[300] text-[14px] leading-[24px] text-[#495D69]'>
-                    (14 Reviews)
+                    ({data?.data.reviews.length} Reviews)
                   </p>
                 </section>
                 <section className='flex flex-row items-center gap-3 mt-5'>
@@ -180,10 +240,18 @@ const SingleProduct: FC = () => {
           </h2>
           <section className='flex justify-center lg:justify-start '>
             <div className='flex lg:flex-row flex-col items-center gap-[20px] mt-5 '>
-              <ProductCard className='lg:w-[377px] w-[90%] mr-0 lg:mr-5' />
-              <ProductCard className='lg:w-[377px] w-[90%] mr-0 lg:mr-5 ' />
-              <ProductCard className='lg:w-[377px] w-[90%] mr-0 lg:mr-5' />
-              <ProductCard className='lg:w-[377px] w-[90%] mr-0 lg:mr-5' />
+              {otherProducts?.data.products.map(
+                (product: product, key: number) => {
+                  return (
+                    <React.Fragment key={key}>
+                      <ProductCard
+                        className='lg:w-[377px] w-[90%] ml-5 lg:ml-0 lg:mr-5 '
+                        product={product}
+                      />
+                    </React.Fragment>
+                  )
+                }
+              )}
             </div>
           </section>
         </div>

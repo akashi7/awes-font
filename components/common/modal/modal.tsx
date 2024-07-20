@@ -68,7 +68,7 @@ const CustomModal: FC<CustomModalProps> = ({
           </div>
           <section className='flex flex-row items-center gap-2 bg-[#f7f8fb]  py-5 mt-5 px-2'>
             <IoIosInformationCircleOutline />
-            <p className='font-[500] text-[14px] text-[#495D69] '>
+            <p className='font-[500] lg:text-[14px] text-[#495D69]  text-[11px]'>
               By proceeding you won’t be charged yet
             </p>
           </section>
