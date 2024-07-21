@@ -6,11 +6,13 @@ import {
   product,
   useGetProductsQuery,
 } from '@/lib/api/products/productsEndpoints'
+import { useGetStoresQuery } from '@/lib/api/stores/storesEndpoints'
 import { FC, useEffect, useState } from 'react'
 
 const Products: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [products, setProducts] = useState<Array<product>>([])
+  const [name, setName] = useState<string>('')
 
   const size = 9
   const { data, refetch, isFetching } = useGetProductsQuery({
@@ -18,9 +20,14 @@ const Products: FC = () => {
     size,
   })
 
+  const { data: storeData, refetch: storeRefetch } = useGetStoresQuery({
+    name,
+  })
+
   useEffect(() => {
     refetch()
-  }, [refetch])
+    storeRefetch()
+  }, [refetch, storeRefetch])
 
   const handleLoadMore = () => {
     setCurrentPage((prevPage) => prevPage + 1)
@@ -70,7 +77,7 @@ const Products: FC = () => {
           </div>
         </section>
         <section className='lg:w-[30%] w-[100%] mt-5 lg:mt-0'>
-          <StoreContainer />
+          <StoreContainer stores={storeData?.data.stores} setName={setName} />
         </section>
       </div>
     </div>

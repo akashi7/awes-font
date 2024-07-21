@@ -1,11 +1,16 @@
+import { useWindowSize } from '@/helpers/interfaceSize'
+import Dropdown from 'antd/lib/dropdown'
+import { FC } from 'react'
+import { BsThreeDotsVertical } from 'react-icons/bs'
 import GlobalButton from '../common/button/globalButton'
 import GlobalImage from '../common/image/globalImage'
 import GlobalInput from '../common/input/globalInput'
-import { BsThreeDotsVertical } from 'react-icons/bs'
-import Dropdown from 'antd/lib/dropdown'
-import { useWindowSize } from '@/helpers/interfaceSize'
 
-const CartItem = () => {
+interface CartItemProps {
+  index: number
+}
+
+const CartItem: FC<CartItemProps> = ({ index }) => {
   const { width } = useWindowSize()
   const isScreenSmall = width <= 1024
 
@@ -30,9 +35,13 @@ const CartItem = () => {
 
   return (
     <div className='flex lg:justify-between flex-row gap-[30px] lg:gap-0 items-center px-5 py-2 border border-[#DBDBDB] w-[100%] '>
-      <p>1</p>
       <section className='flex flex-row gap-3 items-center w-[500px] lg:w-fit'>
-        <GlobalImage src='/icons/cart1.svg' width={isScreenSmall ? 40 : 80} />
+        <p>{index + 1}</p>
+        <GlobalImage
+          src='/icons/cart1.svg'
+          width={isScreenSmall ? 40 : 80}
+          height={isScreenSmall ? 40 : 80}
+        />
         <div>
           <p className=' font-semibold lg:text-[16px] text-[#1C2834] text-[13px]'>
             Product 1
@@ -57,7 +66,7 @@ const CartItem = () => {
           className='rounded-[8px] border-[1.5px] border-[#DBDBDB] h-[48px] w-[48px] bg-white'
         />
       </section>
-      <div className=' flex justify-end'>
+      <div className=' flex justify-end lg:hidden '>
         <Dropdown
           overlay={FiltersDropdown}
           trigger={['click']}

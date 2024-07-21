@@ -84,7 +84,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                       form={formId}
                       icon={<GlobalImage src='/icons/login-e.svg' />}
                       iconPlacement='right'
-                      className='h-[50px] w-[170px] leading-[18.23px] text-[14px] font-[800]'
+                      className='h-[50px] lg:w-[170px] w-[100%] leading-[18.23px] text-[14px] font-[800] header-b-l h-tex-c'
                       loading={loading}
                     >
                       {buttonText}
@@ -97,7 +97,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                     form={formId}
                     icon={<GlobalImage src='/icons/login-e.svg' />}
                     iconPlacement='right'
-                    className='h-[50px] w-[200px] leading-[18.23px] text-[14px] font-[800]'
+                    className='h-[50px] w-[200px] leading-[18.23px] text-[14px] font-[800] header-b-l h-tex-c'
                     loading={loading}
                   >
                     {buttonText}
@@ -115,7 +115,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
                     form={formId}
                     icon={<GlobalImage src='/icons/login-e.svg' />}
                     iconPlacement='right'
-                    className='h-[50px] w-[170px] leading-[18.23px] text-[14px] font-[800]'
+                    className='h-[50px] lg:w-[170px] w-[100%] leading-[18.23px] text-[14px] font-[800] header-b-l h-tex-c'
                     loading={loading}
                   >
                     {buttonText}

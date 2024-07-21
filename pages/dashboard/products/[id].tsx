@@ -87,7 +87,7 @@ const SingleProduct: FC = () => {
                   height={isMobile ? 400 : 574}
                 />
               )}
-              <div className='flex flex-row items-center gap-3  p-5 '>
+              <div className='flex flex-row items-center gap-3  p-4 '>
                 {data?.data.thumbnail.map((image, index) => (
                   <GlobalImage
                     key={index}

@@ -1,8 +1,15 @@
+import { store } from '@/lib/api/stores/storesEndpoints'
+import { FC } from 'react'
 import GlobalImage from '../common/image/globalImage'
 import StoreSearchForm from '../Forms/store.search.form'
 import List from './list'
 
-const StoreContainer = () => {
+interface StoreContainerProps {
+  stores: Array<store> | undefined
+  setName: (name: string) => void
+}
+
+const StoreContainer: FC<StoreContainerProps> = ({ stores, setName }) => {
   return (
     <div className='rounded-xl  border  border-gray-300 '>
       <section className='flex justify-between items-center p-[20px] h-[64px]'>
@@ -13,10 +20,10 @@ const StoreContainer = () => {
         <GlobalImage src='/icons/export.svg' />
       </section>
       <section className=' search-section  py-5 bg-[#F7F8FB] p-[20px] h-[100px] '>
-        <StoreSearchForm />
+        <StoreSearchForm setName={setName} />
       </section>
       <section className='p-[20px]'>
-        <List />
+        <List stores={stores} />
       </section>
     </div>
   )

@@ -3,6 +3,7 @@ import { baseAPI } from '../api'
 export interface PaginationDTO {
   page?: number
   size?: number
+  categoryId?: string
 }
 
 export interface ProductsResponse {
@@ -87,13 +88,15 @@ const productsEndpoints = baseAPI.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query<ProductsResponse, PaginationDTO>({
       providesTags: ['Products'],
-      query: ({ page, size }) => ({
-        url: `products?pageNumber=${page || ''}&recordsPerPage=${size || ''}`,
+      query: ({ page, size, categoryId }) => ({
+        url: `products?pageNumber=${page || ''}&recordsPerPage=${size || ''}${
+          categoryId ? `&categoryId=${categoryId}` : ''
+        }`,
         method: 'GET',
       }),
     }),
     oneProduct: builder.query<OneProductResponse, oneProductDTO>({
-      providesTags: ['Products'],
+      providesTags: ['OneProduct'],
       query: ({ id }) => ({
         url: `products/${id}`,
         method: 'GET',

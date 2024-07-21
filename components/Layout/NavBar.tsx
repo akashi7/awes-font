@@ -132,9 +132,9 @@ export default function NavBar() {
         }
       >
         <div className='lg:p-10 p-5'>
-          {[...Array(3)].map((_, index) => (
+          {[...Array(2)].map((_, index) => (
             <section key={index} className='mb-5'>
-              <CartItem />
+              <CartItem index={index} />
             </section>
           ))}
         </div>
@@ -273,18 +273,18 @@ export default function NavBar() {
             Open a Store
           </GlobalButton>
           <Dropdown overlay={FiltersDropdown} trigger={['click']}>
-            <section className='lg:flex flex-row items-center gap-0 hidden'>
+            <section className='lg:flex flex-row items-center gap-0 hidden '>
               <GlobalButton
                 htmlType='button'
                 icon={<GlobalImage src='/icons/user-h.svg' width={24} />}
-                className='h-[48px] w-[84px] bg-inherit  rounded-l-xl rounded-r-none header-b-c'
+                className='h-[48px] w-[42px] bg-inherit  rounded-l-xl rounded-r-none header-b-c'
               />
               <GlobalButton
                 htmlType='button'
                 icon={
                   <GlobalImage src='/icons/down-h.svg' width={12} height={6} />
                 }
-                className='h-[48px] w-[84px] bg-inherit  rounded-r-xl rounded-l-none header-b-c'
+                className='h-[48px] w-[42px] bg-inherit  rounded-r-xl rounded-l-none header-b-c'
               />
             </section>
           </Dropdown>
@@ -294,7 +294,7 @@ export default function NavBar() {
           trigger={['click']}
           overlayStyle={{ zIndex: 9000, backgroundColor: 'white' }}
         >
-          <section className='flex flex-row items-center gap-0 lg:hidden '>
+          <section className='flex flex-row items-center gap-0 lg:hidden  '>
             <GlobalButton
               htmlType='button'
               icon={<GlobalImage src='/icons/user-h.svg' width={20} />}
