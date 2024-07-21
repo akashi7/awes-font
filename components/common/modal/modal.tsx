@@ -81,7 +81,8 @@ const CustomModal: FC<CustomModalProps> = ({
       centered
       zIndex={8000}
       closable={false}
-      styles={{ body: { height: '500px', overflowY: 'auto' } }}
+      height={800}
+      styles={{ body: { overflowY: 'auto' } }}
       destroyOnClose={destroyOnClose}
     >
       {children}
