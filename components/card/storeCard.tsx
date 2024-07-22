@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import GlobalImage from '../common/image/globalImage'
 import GlobalButton from '../common/button/globalButton'
+import GlobalImage from '../common/image/globalImage'
 import ProductCard from './card'
 
 const StoreCard: FC = () => {
@@ -36,7 +36,7 @@ const StoreCard: FC = () => {
         </div>
       </section>
       <div className='border-t-[1px] border-gray-300 ' />
-      <section className='mt-10 flex  lg:flex-row flex-col  gap-2  lg:items-center lg:px-[40px] lg:py-[20px] px-[20px] py-[10px]  lg:gap-5'>
+      <section className='mt-10 flex xl:flex-row  lg:flex-col flex-col sm:flex-col md:flex-col  gap-2  xl:items-center xl:px-[40px] xl:py-[20px] px-[20px] py-[10px]  lg:gap-5'>
         <div>
           <h2 className=' font-semibold text-[16px] leading-[20px] text-[#1C2834]'>
             About
@@ -83,10 +83,10 @@ const StoreCard: FC = () => {
             Explore Products
           </GlobalButton>
         </div>
-        <div className='flex lg:flex-row lg:items-center gap-2  flex-col mt-5 lg:mt-0'>
-          <ProductCard className='lg:w-[250px]' isStore={true} />
-          <ProductCard className='lg:w-[250px]' isStore={true} />
-          <ProductCard className='lg:w-[250px]' isStore={true} />
+        <div className='flex xl:flex-row xl:items-center gap-2 lg:flex-row  flex-col mt-5 lg:mt-0  xl:flex-nowrap lg:w-[100%]'>
+          <ProductCard className='xl:w-[350px] lg:w-[500px]' isStore={true} />
+          <ProductCard className='xl:w-[350px] lg:w-[500px]  ' isStore={true} />
+          <ProductCard className='xl:w-[350px] lg:w-[500px]  ' isStore={true} />
         </div>
       </section>
     </div>

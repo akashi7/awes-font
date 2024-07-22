@@ -31,14 +31,14 @@ const ProductCard: FC<ProductCardProps> = ({
 
   return (
     <div
-      className={` ${className} lg:w-[370px] w-[100%]  mr-5 mb-5   border-gray-300 border-[1px] rounded-xl hover:cursor-pointer`}
+      className={` ${className} lg:w-[370px]  w-[100%]  mr-5 mb-5   border-gray-300 border-[1px] rounded-xl hover:cursor-pointer`}
       key={key}
       onClick={() => navigate(product?.id)}
     >
       <GlobalImage
         src={product?.thumbnail[0] || '/icons/icon.svg'}
         className='w-full h-full object-cover'
-        width={isMobile ? '100%' : 370}
+        width={isMobile ? '100%' : isStore ? '100%' : 370}
         height={isMobile ? 300 : 256}
       />
       <div className='flex justify-between  p-5 '>
