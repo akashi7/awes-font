@@ -85,8 +85,8 @@ const StoreCard: FC = () => {
         </div>
         <div className='flex xl:flex-row xl:items-center gap-2 lg:flex-row  flex-col mt-5 lg:mt-0  xl:flex-nowrap lg:w-[100%]'>
           <ProductCard className='xl:w-[350px] lg:w-[500px]' isStore={true} />
-          <ProductCard className='xl:w-[350px] lg:w-[500px]  ' isStore={true} />
-          <ProductCard className='xl:w-[350px] lg:w-[500px]  ' isStore={true} />
+          <ProductCard className='xl:w-[350px] lg:w-[500px]' isStore={true} />
+          <ProductCard className='xl:w-[350px] lg:w-[500px]' isStore={true} />
         </div>
       </section>
     </div>
