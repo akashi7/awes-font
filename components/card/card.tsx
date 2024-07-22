@@ -43,17 +43,17 @@ const ProductCard: FC<ProductCardProps> = ({
       />
       <div className='flex justify-between  p-5 '>
         <section>
-          <p className='font-[500] text-[14px]'>
+          <p className='font-[500] lg:text-[14px] text-[12px]'>
             {product?.name || 'Product 1'}
           </p>
           {isStore ? (
-            <p className='font-[700] text-[16px] text-[#C1CF16] leading-[20px]'>
-              {product?.unitPrice || '9,000'} Rwf
+            <p className='font-[700] lg:text-[16px] text-[13px] text-[#C1CF16] leading-[20px]'>
+              {product?.unitPrice || '9,000'} <span>Rwf</span>
             </p>
           ) : (
-            <p className='font-[700] text-[16px] text-[#C1CF16]'>
-              {product?.unitPrice} Rwf
-              <span className='text-[#DBDBDB] text-[14px] pl-3 line-through'>
+            <p className='font-[700] lg:text-[16px] text-[13px] text-[#C1CF16]'>
+              {product?.unitPrice || '9,000'} Rwf
+              <span className='text-[#DBDBDB] lg:text-[14px] text-[12px] pl-3 line-through'>
                 12,000 Rwf
               </span>
             </p>
