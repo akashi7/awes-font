@@ -1,12 +1,14 @@
+import requiredField from '@/helpers/requiredField'
 import { SignupDTO } from '@/lib/api/auth/authEndpoints'
 import Col from 'antd/lib/col'
 import Form, { FormInstance } from 'antd/lib/form'
 import Row from 'antd/lib/row'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { MdDriveFileRenameOutline } from 'react-icons/md'
+import GlobalButton from '../common/button/globalButton'
+import GlobalImage from '../common/image/globalImage'
 import GlobalInput from '../common/input/globalInput'
-import requiredField from '@/helpers/requiredField'
 
 interface SignUpFormProps {
   form: FormInstance
@@ -14,6 +16,11 @@ interface SignUpFormProps {
 }
 
 const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
+  const [showPassword, setShowPassword] = useState<boolean>(false)
+
+  const TogglePassword = () => {
+    setShowPassword((prev) => !prev)
+  }
   return (
     <Form name='signup-form' form={form} onFinish={onFinish}>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
@@ -34,9 +41,16 @@ const SignUpForm: FC<SignUpFormProps> = ({ form, onFinish }) => {
             label='Password'
             styles='bg-[#0C0C0D0A] login-input'
             placeholder='Enter Password'
-            inputType='password'
+            inputType={showPassword ? 'text' : 'password'}
             icon='/icons/lockp.svg'
             suffixIcon='/icons/view.svg '
+            suffixButton={
+              <GlobalButton
+                icon={<GlobalImage src='/icons/view.svg ' className='' />}
+                className=' bg-inherit  border-none header-b-c'
+                onClick={TogglePassword}
+              />
+            }
             rules={requiredField('Password')}
           />
         </Col>

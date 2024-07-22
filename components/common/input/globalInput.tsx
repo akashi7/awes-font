@@ -71,11 +71,11 @@ const GlobalInput: FC<GlobalInputProps> = ({
             ) : null
           }
           suffix={
-            inputType === 'password' && suffixIcon ? (
-              <GlobalImage src={suffixIcon} className='' />
-            ) : isSuffixButton ? (
-              (suffixButton as ReactNode)
-            ) : null
+            suffixIcon
+              ? (suffixButton as ReactNode)
+              : isSuffixButton
+              ? (suffixButton as ReactNode)
+              : null
           }
         />
       </Form.Item>
