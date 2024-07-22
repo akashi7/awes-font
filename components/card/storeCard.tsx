@@ -36,7 +36,7 @@ const StoreCard: FC = () => {
         </div>
       </section>
       <div className='border-t-[1px] border-gray-300 ' />
-      <section className='mt-10 flex xl:flex-row  lg:flex-col flex-col sm:flex-col md:flex-col  gap-2  xl:items-center xl:px-[40px] xl:py-[20px] px-[20px] py-[10px]  lg:gap-5'>
+      <section className='mt-10 flex 2xl:flex-row  lg:flex-col flex-col sm:flex-col md:flex-col xl:flex-col gap-2  2xl:items-center xl:px-[40px] xl:py-[20px] px-[20px] py-[10px]  lg:gap-5 '>
         <div>
           <h2 className=' font-semibold text-[16px] leading-[20px] text-[#1C2834]'>
             About
