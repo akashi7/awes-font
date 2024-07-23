@@ -11,6 +11,7 @@ interface ProductCardProps {
   saved?: boolean
   key?: string
   product?: product
+  more?: boolean
 }
 
 const ProductCard: FC<ProductCardProps> = ({
@@ -19,6 +20,7 @@ const ProductCard: FC<ProductCardProps> = ({
   saved,
   key,
   product,
+  more,
 }) => {
   const router = useRouter()
 
@@ -37,8 +39,8 @@ const ProductCard: FC<ProductCardProps> = ({
     >
       <GlobalImage
         src={product?.thumbnail[0] || '/icons/icon.svg'}
-        className='w-full h-full object-cover'
-        width={isMobile ? '100%' : isStore ? '100%' : 370}
+        className='w-full h-full object-cover  rounded-t-xl'
+        width={isMobile ? '100%' : isStore ? '100%' : more ? 377 : 370}
         height={isMobile ? 300 : 256}
       />
       <div className='flex justify-between  p-5 '>

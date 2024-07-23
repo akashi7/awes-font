@@ -82,7 +82,7 @@ const SingleProduct: FC = () => {
               {selectedImage && (
                 <GlobalImage
                   src={selectedImage}
-                  className='w-full h-full object-cover'
+                  className='w-full h-full object-cover rounded-t-xl'
                   width={isMobile ? '100%' : 682}
                   height={isMobile ? 400 : 574}
                 />
@@ -247,6 +247,7 @@ const SingleProduct: FC = () => {
                       <ProductCard
                         className='lg:w-[377px] w-[90%] ml-5 lg:ml-0 lg:mr-5 '
                         product={product}
+                        more={true}
                       />
                     </React.Fragment>
                   )
