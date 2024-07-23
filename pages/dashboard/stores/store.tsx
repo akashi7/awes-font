@@ -16,7 +16,7 @@ const Stores = () => {
       </section>
       <div className='flex justify-center '>
         <GlobalButton
-          className=' font-semibold  bg-inherit border border-gray-300 h-[48px] w-[161px]'
+          className=' font-semibold  bg-inherit border border-gray-300 h-[48px] w-[161px] h-tex-c  header-b-c'
           icon={<GlobalImage src='/icons/exp-down.svg' />}
         >
           Load More

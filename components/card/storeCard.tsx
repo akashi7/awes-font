@@ -21,17 +21,17 @@ const StoreCard: FC = () => {
         <div className='flex flex-row items-center gap-3'>
           <GlobalButton
             icon={<GlobalImage src='/icons/user.svg' />}
-            className='w-[169px] font-bold leading-[18px] text-[14px] h-[48px]'
+            className='w-[169px] font-bold leading-[18px] text-[14px] h-[48px] header-b-l h-tex-c'
           >
             View Profile
           </GlobalButton>
           <GlobalButton
             icon={<GlobalImage src='/icons/callj.svg' />}
-            className='w-[48px] bg-inherit border-[1.5px] border-gray-300 h-[48px]'
+            className='w-[48px] bg-inherit border-[1.5px] border-gray-300 h-[48px] header-b-c'
           />
           <GlobalButton
             icon={<GlobalImage src='/icons/favourite.svg' />}
-            className='w-[48px] bg-inherit border-[1.5px] border-gray-300 h-[48px]'
+            className='w-[48px] bg-inherit border-[1.5px] border-gray-300 h-[48px] header-b-c'
           />
         </div>
       </section>
