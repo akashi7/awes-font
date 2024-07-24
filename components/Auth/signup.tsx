@@ -1,3 +1,4 @@
+import handleAPIRequests from '@/helpers/handleApiRequests'
 import {
   AuthResponse,
   SignupDTO,
@@ -8,7 +9,6 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 import SignUpForm from '../Forms/signup.form'
 import AuthContainer from './container'
-import handleAPIRequests from '@/helpers/handleApiRequests'
 
 const SignUp: FC = () => {
   const [form] = Form.useForm()
@@ -17,7 +17,7 @@ const SignUp: FC = () => {
 
   const onSuccess = (res: AuthResponse): void => {
     if (res.data) {
-      router.push('/dashboard')
+      router.push('/login')
     }
   }
 
