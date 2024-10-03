@@ -83,7 +83,7 @@ const SingleProduct: FC = () => {
                 <GlobalImage
                   src={selectedImage}
                   className='w-full h-full object-cover rounded-t-xl '
-                  // width={isMobile ? '100%' : 500}
+                  width={'100%'}
                   height={isMobile ? 400 : 574}
                 />
               )}
