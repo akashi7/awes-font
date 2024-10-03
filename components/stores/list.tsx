@@ -1,6 +1,7 @@
 import { store } from '@/lib/api/stores/storesEndpoints'
 import { FC } from 'react'
 import GlobalImage from '../common/image/globalImage'
+import React from 'react'
 
 interface ListProps {
   stores: Array<store> | undefined

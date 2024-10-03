@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { FC, ReactNode } from 'react'
 import GlobalButton from '../common/button/globalButton'
 import GlobalImage from '../common/image/globalImage'
+import React from 'react'
 
 interface AuthContainerProps {
   title: string

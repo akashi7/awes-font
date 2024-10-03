@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 import GlobalButton from '../common/button/globalButton'
 import GlobalImage from '../common/image/globalImage'
+import React from 'react'
 
 interface ProductCardProps {
   className?: string
@@ -33,14 +34,14 @@ const ProductCard: FC<ProductCardProps> = ({
 
   return (
     <div
-      className={` ${className} lg:w-[370px]  w-[100%]  mr-5 mb-5   border-gray-300 border-[1px] rounded-xl hover:cursor-pointer`}
+      className={` ${className} 2xl:w-[370px] xl:w-[370px] lg:w-[370px] md:w-[370px]  w-[100%]  mr-5 mb-5   border-gray-300 border-[1px] rounded-xl hover:cursor-pointer`}
       key={key}
       onClick={() => navigate(product?.id)}
     >
       <GlobalImage
         src={product?.thumbnail[0] || '/icons/icon.svg'}
         className='w-full h-full object-cover  rounded-t-xl'
-        width={isMobile ? '100%' : isStore ? '100%' : more ? 377 : 370}
+        width={isMobile ? '100%' : isStore ? '100%' : more ? 370 : 370}
         height={isMobile ? 300 : 256}
       />
       <div className='flex justify-between  p-5 '>

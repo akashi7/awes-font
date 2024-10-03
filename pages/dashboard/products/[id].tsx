@@ -77,13 +77,13 @@ const SingleProduct: FC = () => {
           </p>
         </section>
         <div className='flex lg:flex-row items-center gap-5 mt-5 flex-col'>
-          <section className='lg:h-[674px] lg:w-[682px] w-[90%] '>
+          <section className='lg:h-[674px] 2xl:w-[1450px] xl:w-[600px] lg:w-[500px] md:w-[90%] w-[90%] '>
             <div className=' border-gray-300 border-[1px] rounded-xl '>
               {selectedImage && (
                 <GlobalImage
                   src={selectedImage}
-                  className='w-full h-full object-cover rounded-t-xl'
-                  width={isMobile ? '100%' : 682}
+                  className='w-full h-full object-cover rounded-t-xl '
+                  // width={isMobile ? '100%' : 500}
                   height={isMobile ? 400 : 574}
                 />
               )}
@@ -105,7 +105,7 @@ const SingleProduct: FC = () => {
               </div>
             </div>
           </section>
-          <section className='lg:h-[674px] h-[100%]  border-gray-300 border-[1px] rounded-xl relative w-[90%]  lg:max-w-custom'>
+          <section className='lg:h-[674px] h-[100%]  border-gray-300 border-[1px] rounded-xl relative w-[90%] 2xl:w-[100%] lg:w-[100%] md:w-[100%]  lg:max-w-custom'>
             <div>
               <section className='lg:flex justify-between  items-center flex-row p-[40px]  h-[88px] hidden'>
                 <div className='flex flex-row items-center gap-5'>
@@ -238,8 +238,8 @@ const SingleProduct: FC = () => {
           <h2 className=' font-bold lg:text-[24px] text-[16px] text-center lg:text-left  leading-[30px]'>
             You might also like
           </h2>
-          <section className='flex justify-center lg:justify-start '>
-            <div className='flex lg:flex-row flex-col items-center gap-[20px] mt-5 '>
+          <section className=''>
+            <div className=' mt-5  grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1'>
               {otherProducts?.data.products.map(
                 (product: product, key: number) => {
                   return (
